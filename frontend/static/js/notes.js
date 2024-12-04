@@ -3,7 +3,7 @@ async function saveNote() {
     const notesList = document.getElementById('notesList');
     const noteText = noteInput.value.trim();
     if (noteText) {
-        const response = await fetch('/notes', {
+        const response = await fetch('http://localhost:5000/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ async function saveNote() {
 
 async function loadNotes() {
     const notesList = document.getElementById('notesList');
-    const response = await fetch('/notes');
+    const response = await fetch('http://localhost:5000/notes');
     const notes = await response.json();
     notes.forEach(note => {
         const listItem = document.createElement('li');
