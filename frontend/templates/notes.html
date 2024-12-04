@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Notes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -22,45 +23,7 @@
         </div>
         <a href="/" class="btn btn-secondary mt-3">Back to Home</a>
     </div>
-    <script>
-        async function saveNote() {
-            const noteInput = document.getElementById('noteInput');
-            const notesList = document.getElementById('notesList');
-            const noteText = noteInput.value.trim();
-            if (noteText) {
-                const response = await fetch('/notes', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ note: noteText })
-                });
-                if (response.ok) {
-                    const listItem = document.createElement('li');
-                    listItem.className = 'list-group-item';
-                    listItem.textContent = noteText;
-                    notesList.appendChild(listItem);
-                    noteInput.value = '';
-                } else {
-                    alert('Failed to save note');
-                }
-            }
-        }
-
-        async function loadNotes() {
-            const notesList = document.getElementById('notesList');
-            const response = await fetch('/notes');
-            const notes = await response.json();
-            notes.forEach(note => {
-                const listItem = document.createElement('li');
-                listItem.className = 'list-group-item';
-                listItem.textContent = note[1]; // Assuming note text is in the second column
-                notesList.appendChild(listItem);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', loadNotes);
-    </script>
+    <script src="/static/js/notes.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
