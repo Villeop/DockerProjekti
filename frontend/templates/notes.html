@@ -20,21 +20,46 @@
             <h3>Saved Notes:</h3>
             <ul class="list-group" id="notesList"></ul>
         </div>
-        <a href="index.html" class="btn btn-secondary mt-3">Back to Home</a>
+        <a href="/" class="btn btn-secondary mt-3">Back to Home</a>
     </div>
     <script>
-        function saveNote() {
+        async function saveNote() {
             const noteInput = document.getElementById('noteInput');
             const notesList = document.getElementById('notesList');
             const noteText = noteInput.value.trim();
             if (noteText) {
-                const listItem = document.createElement('li');
-                listItem.className = 'list-group-item';
-                listItem.textContent = noteText;
-                notesList.appendChild(listItem);
-                noteInput.value = '';
+                const response = await fetch('/notes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ note: noteText })
+                });
+                if (response.ok) {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    listItem.textContent = noteText;
+                    notesList.appendChild(listItem);
+                    noteInput.value = '';
+                } else {
+                    alert('Failed to save note');
+                }
             }
         }
+
+        async function loadNotes() {
+            const notesList = document.getElementById('notesList');
+            const response = await fetch('/notes');
+            const notes = await response.json();
+            notes.forEach(note => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.textContent = note[1]; // Assuming note text is in the second column
+                notesList.appendChild(listItem);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNotes);
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
