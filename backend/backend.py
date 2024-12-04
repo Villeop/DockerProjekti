@@ -1,46 +1,37 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
 import psycopg2
 
 app = Flask(__name__)
 
-# Tietokantayhteys
-conn = psycopg2.connect(
-    host="database",
-    database="notes",
-    user="user",
-    password="password"
-)
-
-@app.route('/')
-def index():
-    return jsonify({"message": "Welcome to the backend API!"})
+def get_db_connection():
+    conn = psycopg2.connect(
+        host="database",
+        database="notes",
+        user="user",
+        password="password"
+    )
+    return conn
 
 @app.route('/notes', methods=['GET'])
 def get_notes():
+    conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT * FROM notes;")
-    rows = cur.fetchall()
+    cur.execute('SELECT * FROM notes;')
+    notes = cur.fetchall()
     cur.close()
-    return jsonify(rows)
+    conn.close()
+    return jsonify(notes)
 
 @app.route('/notes', methods=['POST'])
 def add_note():
-    new_note = request.json.get('note')
+    new_note = request.json['note']
+    conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("INSERT INTO notes (content) VALUES (%s)", (new_note,))
+    cur.execute('INSERT INTO notes (note) VALUES (%s)', (new_note,))
     conn.commit()
     cur.close()
-    return jsonify({"message": "Note added successfully!"}), 201
+    conn.close()
+    return '', 201
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
-cur = conn.cursor()
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS notes (
-        id SERIAL PRIMARY KEY,
-        content TEXT NOT NULL
-    );
-""")
-conn.commit()
-cur.close()
