@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Notes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">User Notes</h1>
+        <form id="notesForm" class="mt-4">
+            <div class="form-group">
+                <label for="noteInput">Enter your note:</label>
+                <textarea class="form-control" id="noteInput" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="saveNote()">Save Note</button>
+        </form>
+        <div id="savedNotes" class="mt-4">
+            <h3>Saved Notes:</h3>
+            <ul class="list-group" id="notesList"></ul>
+        </div>
+        <a href="index.html" class="btn btn-secondary mt-3">Back to Home</a>
+    </div>
+    <script>
+        function saveNote() {
+            const noteInput = document.getElementById('noteInput');
+            const notesList = document.getElementById('notesList');
+            const noteText = noteInput.value.trim();
+            if (noteText) {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.textContent = noteText;
+                notesList.appendChild(listItem);
+                noteInput.value = '';
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
