@@ -14,7 +14,7 @@ async function saveNote() {
             const listItem = document.createElement('li');
             listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
             listItem.innerHTML = `
-                <span class="note-text">${noteText}</span>
+                <span class="note-text" style="white-space: pre-wrap;">${noteText}</span>
                 <div>
                     <button class="btn btn-sm btn-warning mr-2" onclick="editNote(this)">Muokkaa</button>
                     <button class="btn btn-sm btn-danger" onclick="removeNote(this)">Poista</button>
@@ -23,7 +23,7 @@ async function saveNote() {
             notesList.appendChild(listItem);
             noteInput.value = '';
         } else {
-            alert('Failed to save note');
+            alert('Tallennus epäonnistui');
         }
     }
 }
@@ -36,7 +36,7 @@ async function loadNotes() {
         const listItem = document.createElement('li');
         listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
         listItem.innerHTML = `
-            <span class="note-text">${note[1]}</span>
+            <span class="note-text" style="white-space: pre-wrap;">${note[1]}</span>
             <div>
                 <button class="btn btn-sm btn-warning mr-2" onclick="editNote(this)">Muokkaa</button>
                 <button class="btn btn-sm btn-danger" onclick="removeNote(this)">Poista</button>

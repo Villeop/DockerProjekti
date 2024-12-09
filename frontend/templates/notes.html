@@ -30,13 +30,13 @@
                 <form id="notesForm" class="mt-4">
                     <div class="form-group">
                         <label for="noteInput">Lisää muistiinpanoja:</label>
-                        <textarea class="form-control" id="noteInput" rows="5" style="resize: vertical;" oninput="autoExpand(this)"></textarea>
+                        <textarea class="form-control" id="noteInput" rows="5" style="resize: vertical; width: 100%;" oninput="autoExpand(this)"></textarea>
                     </div>
                     <button type="button" class="btn btn-primary" onclick="saveNote()">Tallenna</button>
                 </form>
                 <div id="savedNotes" class="mt-4">
                     <h4>Tallennetut muistiinpanot:</h4>
-                    <ul class="list-group" id="notesList"></ul>
+                    <ul class="list-group" id="notesList" style="width: 100%;"></ul>
                 </div>
             </div>
         </div>
