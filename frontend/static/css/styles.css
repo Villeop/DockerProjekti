@@ -24,6 +24,7 @@ body {
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%; /* Ensure the content area is the same width as the header */
 }
 
 .content[style*="flex-direction: column;"] {
@@ -43,6 +44,7 @@ body {
 
 .content[style*="flex-direction: column;"] .text {
     margin-right: 0;
+    width: 100%; /* Ensure the text area is the same width as the content */
 }
 
 .content .image {
