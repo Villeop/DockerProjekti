@@ -1,21 +1,110 @@
-<!DOCTYPE html>
+<div class="image"></div>
 <html lang="en">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docker Projekti</title>
+
+    <!-- CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy&family=Yeseva+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+            background-color: #0e0e0e;
+            color: #e9e9e9;
+            font-family: 'Poltawski Nowy', serif;
+        }
+        .header {
+            background-color: #181716;
+            color: #e9e9e9;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #dac5a7;
+            margin-bottom: 20px; /* Add margin to the bottom of the header */
+        }
+        .header h1 {
+            margin: 0; /* Remove margin from h1 */
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content .text {
+            flex: 1;
+            margin-right: 20px;
+            background-color: #181716;
+            color: #e9e9e9;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #dac5a7;
+        }
+        .content .image {
+            flex: 1;
+            text-align: right;
+        }
+        .header a {
+            color: #e9e9e9;
+            text-decoration: none;
+            padding: 10px;
+            font-family: 'Yeseva One', cursive;
+            font-size: 1.1em;
+        }
+        .header a:hover, .header h1:hover {
+            color: #dcdcdc;
+            text-decoration: underline;
+        }
+        .header h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .header a[href="/notes"] {
+            border: 1px solid #dac5a7;
+            border-radius: 5px;
+            padding: 8px;
+            background-color: #dac5a7;
+            color: #181716;
+        }
+        .header a[href="/notes"]:hover {
+            background-color: #e9e9e9;
+            color: #0e0e0e;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="mt-5">Tervetuloa!</h1>
-        <p class="lead">Tämä on projektin etusivu testivaiheessa! Jos näet tämän, ympäristö toimii!</p>
-        <div class="mt-4">
-            <a href="/docker" class="btn btn-primary">Docker</a>
-            <a href="/docker-compose" class="btn btn-primary">Docker Compose</a>
-            <a href="/notes" class="btn btn-primary">User Notes</a>
+        <div class="header d-flex justify-content-between align-items-center">
+            <h1><a href="/index">DOCKER PROJEKTI</a></h1>
+            <div>
+                <a href="/docker">Docker</a>
+                <a href="/docker-compose">Docker Compose</a>
+                <a href="/notes">User Notes</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2 class="mt-4">Kuvaus:</h2>
+                <p class="mt-4">Tavoitteena oli luoda Docker pohjainen ympäristö, jolla voitaisiin esitellä kurssilla käytyjä aiheita nettisivujen muodossa. Tässä projektissa nettisivut ovat jaettu seuraavasti:</p>
+                <ul>
+                    <li><strong>Docker:</strong> Dockerin peruskäsitteet ja toiminta.</li>
+                    <li><strong>Docker Compose:</strong> Docker Composea ja sen käyttö.</li>
+                    <li><strong>User Notes:</strong> Käyttäjän omat muistiinpanot.</li>
+                </ul>
+                <p class="mt-4">Tämä sivusto on toteutettu Flaskilla ja Bootstrapilla.</p>
+                <p class="mt-4">Voit siirtyä sivulta toiselle yläpalkin linkeistä.</p>
+                <p class="mt-4">Tekijä: Ville Puttonen</p>
+            </div>
+            <div class="image"></div>
+                <img src="static/images/docker.png" alt="Docker Logo" class="img-fluid">
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
