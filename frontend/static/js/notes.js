@@ -20,7 +20,7 @@ async function saveNote() {
                     <button class="btn btn-sm btn-danger" onclick="removeNote(this)">Poista</button>
                 </div>
             `;
-            notesList.appendChild(listItem);
+            notesList.insertBefore(listItem, notesList.firstChild);
             noteInput.value = '';
         } else {
             alert('Tallennus epäonnistui');
@@ -50,7 +50,7 @@ function editNote(button) {
     const listItem = button.closest('li');
     const noteText = listItem.querySelector('.note-text');
     const currentText = noteText.textContent;
-    noteText.innerHTML = `<input type="text" class="form-control" value="${currentText}">`;
+    noteText.innerHTML = `<textarea class="form-control" rows="5" style="resize: vertical; width: 100%;">${currentText}</textarea>`;
     button.textContent = 'Tallenna';
     button.onclick = function() {
         saveEditedNote(this);
@@ -59,7 +59,7 @@ function editNote(button) {
 
 function saveEditedNote(button) {
     const listItem = button.closest('li');
-    const noteInput = listItem.querySelector('input');
+    const noteInput = listItem.querySelector('textarea');
     const newText = noteInput.value.trim();
     const noteText = listItem.querySelector('.note-text');
 
