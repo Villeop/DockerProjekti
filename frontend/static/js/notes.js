@@ -11,8 +11,10 @@ async function saveNote() {
             body: JSON.stringify({ note: noteText })
         });
         if (response.ok) {
+            const note = await response.json();
             const listItem = document.createElement('li');
             listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+            listItem.dataset.id = note.id;
             listItem.innerHTML = `
                 <span class="note-text" style="white-space: pre-wrap;">${noteText}</span>
                 <div>
@@ -35,6 +37,7 @@ async function loadNotes() {
     notes.forEach(note => {
         const listItem = document.createElement('li');
         listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+        listItem.dataset.id = note[0];
         listItem.innerHTML = `
             <span class="note-text" style="white-space: pre-wrap;">${note[1]}</span>
             <div>
@@ -44,6 +47,19 @@ async function loadNotes() {
         `;
         notesList.appendChild(listItem);
     });
+}
+
+async function removeNote(button) {
+    const listItem = button.closest('li');
+    const noteId = listItem.dataset.id;
+    const response = await fetch(`http://localhost:5000/notes/${noteId}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        listItem.remove();
+    } else {
+        alert('Poisto epäonnistui');
+    }
 }
 
 function editNote(button) {
@@ -57,29 +73,31 @@ function editNote(button) {
     };
 }
 
-function saveEditedNote(button) {
+async function saveEditedNote(button) {
     const listItem = button.closest('li');
     const noteInput = listItem.querySelector('textarea');
     const newText = noteInput.value.trim();
     const noteText = listItem.querySelector('.note-text');
+    const noteId = listItem.dataset.id;
 
     if (newText) {
-        noteText.textContent = newText;
-        button.textContent = 'Muokkaa';
-        button.onclick = function() {
-            editNote(this);
-        };
+        const response = await fetch(`http://localhost:5000/notes/${noteId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ note: newText })
+        });
+        if (response.ok) {
+            noteText.textContent = newText;
+            button.textContent = 'Muokkaa';
+            button.onclick = function() {
+                editNote(this);
+            };
+        } else {
+            alert('Muokkaus epäonnistui');
+        }
     }
-}
-
-function removeNote(button) {
-    const listItem = button.closest('li');
-    listItem.remove();
-}
-
-function autoExpand(field) {
-    field.style.height = 'inherit';
-    field.style.height = `${field.scrollHeight}px`;
 }
 
 document.addEventListener('DOMContentLoaded', loadNotes);

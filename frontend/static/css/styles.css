@@ -97,3 +97,12 @@ body {
     background-color: #dac5a7;
     color: #181716;
 }
+
+.note-text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.note-text textarea {
+    width: calc(100% - 20px); 
+}
