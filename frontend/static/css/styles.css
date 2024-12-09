@@ -26,6 +26,10 @@ body {
     margin: 0 auto;
 }
 
+.content[style*="flex-direction: column;"] {
+    width: 100%;
+}
+
 .content .text {
     flex: 1;
     margin-right: 20px;
