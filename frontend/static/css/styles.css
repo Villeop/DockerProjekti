@@ -24,7 +24,7 @@ body {
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%; /* Ensure the content area is the same width as the header */
+    width: 100%;
 }
 
 .content[style*="flex-direction: column;"] {
@@ -44,7 +44,7 @@ body {
 
 .content[style*="flex-direction: column;"] .text {
     margin-right: 0;
-    width: 100%; /* Ensure the text area is the same width as the content */
+    width: 100%;
 }
 
 .content .image {
@@ -105,4 +105,20 @@ body {
 
 .note-text textarea {
     width: calc(100% - 20px); 
+}
+
+button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn-primary {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #181716;
+}
+
+.btn-primary:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    color: #181716;
 }
