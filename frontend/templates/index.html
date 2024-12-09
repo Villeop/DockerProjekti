@@ -12,75 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy&family=Yeseva+One&display=swap" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 20px;
-            background-color: #0e0e0e;
-            color: #e9e9e9;
-            font-family: 'Poltawski Nowy', serif;
-        }
-        .header {
-            background-color: #181716;
-            color: #e9e9e9;
-            border-radius: 5px;
-            padding: 10px;
-            border: 1px solid #dac5a7;
-            margin-bottom: 20px; /* Add margin to the bottom of the header */
-        }
-        .header h1 {
-            margin: 0; /* Remove margin from h1 */
-        }
-        .content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .content .text {
-            flex: 1;
-            margin-right: 20px;
-            background-color: #181716;
-            color: #e9e9e9;
-            border-radius: 5px;
-            padding: 10px;
-            border: 1px solid #dac5a7;
-        }
-        .content .image {
-            flex: 1;
-            text-align: right;
-        }
-        .content .image img {
-            max-width: 100%;
-            height: auto;
-        }
-        .header a {
-            color: #e9e9e9;
-            text-decoration: none;
-            padding: 10px;
-            font-family: 'Yeseva One', cursive;
-            font-size: 1.1em;
-        }
-        .header a:hover, .header h1:hover {
-            color: #dcdcdc;
-            text-decoration: underline;
-        }
-        .header h1 a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .header a[href="/notes"] {
-            border: 1px solid #dac5a7;
-            border-radius: 5px;
-            padding: 8px;
-            background-color: #dac5a7;
-            color: #181716;
-        }
-        .header a[href="/notes"]:hover {
-            background-color: #e9e9e9;
-            color: #0e0e0e;
-        }
-    </style>
 </head>
 
 <body>
@@ -96,15 +27,17 @@
         <div class="content">
             <div class="text">
                 <h2 class="mt-4">Kuvaus:</h2>
-                <p class="mt-4">Tavoitteena oli luoda Docker pohjainen ympäristö, jolla voitaisiin esitellä kurssilla käytyjä aiheita nettisivujen muodossa. Tässä projektissa nettisivut ovat jaettu seuraavasti:</p>
+                <p class="mt-4">Tavoitteena oli luoda Docker pohjainen ympäristö, jolla voitaisiin esitellä Pilvipalvelut -kurssilla käytyjä aiheita Dockeriin liittyen nettisivujen muodossa. Loppullista projektia voitaisiin myös laajentaa, sekä käyttää esimerkkinä Dockerista ja sen käytöstä. Tässä nettisivut ovat jaettu seuraavasti:</p>
                 <ul>
                     <li><strong>Docker:</strong> Dockerin peruskäsitteet ja toiminta.</li>
-                    <li><strong>Docker Compose:</strong> Docker Composea ja sen käyttö.</li>
+                    <li><strong>Docker Compose:</strong> Docker Compose ja sen käyttö.</li>
                     <li><strong>User Notes:</strong> Käyttäjän omat muistiinpanot.</li>
                 </ul>
-                <p class="mt-4">Tämä sivusto on toteutettu Flaskilla ja Bootstrapilla.</p>
-                <p class="mt-4">Voit siirtyä sivulta toiselle yläpalkin linkeistä.</p>
-                <p class="mt-4">Tekijä: Ville Puttonen</p>
+                <p class="mt-4">Tämä sivusto on toteutettu Flask-mikroverkkokehyksen ja Bootstrap-CSS-kehyksen avulla.</p>
+                <p class="mt-4">Projektin ympäristö on suunniteltu laajennettavaksi käyttäjän omia muistiinpanoja varten. Muistiinpanot tallennetaan tietokantaan, ja niitä voidaan muokata sekä poistaa.</p>
+                <p class="mt-4">Jos laajentavuutta halutaan viedä pidemmälle esimerkkejä varten, on myös uusien sivujen lisääminen on mahdollista lisäämällä HTML-tiedostoja <code>templates</code>-kansioon, sekä määrittelemällä niille reitit <code>website.py</code>-tiedostossa. Myös CSS- ja JavaScript-tiedostojen lisääminen on mahdollista lisäämällä ne <code>static</code>-kansioon.</p>
+                <p class="mt-4">Voit tutustua eri aiheisiin yläpalkin linkkien kautta.</p>
+                <p class="mt-4"><strong>Tekijä:</strong> Ville Puttonen</p>
             </div>
             <div class="image">
                 <img src="static/images/docker.png" alt="Docker Logo" class="img-fluid">
