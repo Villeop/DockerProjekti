@@ -77,4 +77,9 @@ function removeNote(button) {
     listItem.remove();
 }
 
+function autoExpand(field) {
+    field.style.height = 'inherit';
+    field.style.height = `${field.scrollHeight}px`;
+}
+
 document.addEventListener('DOMContentLoaded', loadNotes);

@@ -34,7 +34,11 @@ body {
     border-radius: 5px;
     padding: 10px;
     border: 1px solid #dac5a7;
-    font-size: 1.1em; /* Increase font size */
+    font-size: 1.1em;
+}
+
+.content[style*="flex-direction: column;"] .text {
+    margin-right: 0;
 }
 
 .content .image {
