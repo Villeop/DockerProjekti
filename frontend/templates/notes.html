@@ -4,26 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Notes</title>
+    <title>Muistiinpanot</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy&family=Yeseva+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1 class="mt-5">User Notes</h1>
-        <form id="notesForm" class="mt-4">
-            <div class="form-group">
-                <label for="noteInput">Enter your note:</label>
-                <textarea class="form-control" id="noteInput" rows="3"></textarea>
+        <div class="header d-flex justify-content-between align-items-center">
+            <h1><a href="/index">DOCKER PROJEKTI</a></h1>
+            <div>
+                <a href="/docker">Docker</a>
+                <a href="/docker-compose">Docker Compose</a>
+                <a href="/notes">Muistiinpanot</a>
             </div>
-            <button type="button" class="btn btn-primary" onclick="saveNote()">Save Note</button>
-        </form>
-        <div id="savedNotes" class="mt-4">
-            <h3>Saved Notes:</h3>
-            <ul class="list-group" id="notesList"></ul>
         </div>
-        <a href="/" class="btn btn-secondary mt-3">Back to Home</a>
+        <div class="content">
+            <h2 class="mt-5">Muistiinpanot</h2>
+            <form id="notesForm" class="mt-4">
+                <div class="form-group">
+                    <label for="noteInput">Lisää muistiinpanoja:</label>
+                    <textarea class="form-control" id="noteInput" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveNote()">Tallenna</button>
+            </form>
+            <div id="savedNotes" class="mt-4">
+                <h4>Tallennetut muistiinpanot:</h4>
+                <ul class="list-group" id="notesList"></ul>
+            </div>
+        </div>
     </div>
     <script src="/static/js/notes.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
