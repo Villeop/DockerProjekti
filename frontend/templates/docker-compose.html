@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
                 <h4 class="mt-4">Docker Compose -tiedosto</h4>
                 <p class="mt-4">Docker Compose on YAML-muotoinen tiedosto, joka sisältää konteille oleelliset määritykset ja asetukset. Tiedostossa määritellään mm. konttien nimet, käytettävät imaget, portit, ympäristömuuttujat ja riippuvuudet.</p>
                 <p class="mt-4">Esimerkkinä tämän projektin oma 'docker-compose.yml' -tiedosto:</p>
-                <pre class="mt-4 bg-light p-3">
+                <pre class="mt-4 bg-light p-3" style="max-width: 60%; margin: 0 auto;">
                     version: '3.9'
                     
                     services:
@@ -65,7 +65,7 @@
                 <!-- Frontend -->
                 <h4 class="mt-4">Frontend-palvelu</h4>
                 <p class="mt-4">Frontend-palvelu määrittelee käyttöliittymän. Se rakentaa Docker imagen './frontend' hakemiston Dockerfilen perusteella. Se myös avaa portin 3000, jonka kautta frontend on saatavilla osoitteessa 'http://localhost:3000'.</p>
-                <pre class="mt-4 bg-light p-3">
+                <pre class="mt-4 bg-light p-3" style="max-width: 60%; margin: 0 auto;">
                     frontend:
                       build: ./frontend
                       ports:
@@ -75,7 +75,7 @@
                 <!-- Backend -->
                 <h4 class="mt-4">Backend-palvelu</h4>
                 <p class="mt-4">Backend-palvelu hoitaa sovelluksen palvelinpuolen asiat. Se rakentaa Docker imagen './backend' hakemiston Dockerfilen perusteella ja toimii portissa 5000. Lisäksi backendiin on määritelty riippuvuudeksi tietokanta, 'database', jotta backend saadaan odottamaan tietokannan käynnistymistä ennen kuin backend itse käynnistyy.</p>
-                <pre class="mt-4 bg-light p-3">
+                <pre class="mt-4 bg-light p-3" style="max-width: 60%; margin: 0 auto;">
                     backend:
                       build: ./backend
                       ports:
@@ -87,7 +87,7 @@
                 <!-- Database -->
                 <h4 class="mt-4">Tietokantapalvelu</h4>
                 <p class="mt-4">Tietokantapalvelu käyttää virallista Postgres-imagea ja määrittelee ympäristömuuttujat käyttäjälle, salasanalle ja tietokannan nimelle. Tietokantapalvelu avaa portin 5432 ja määritelee lisäksi kaksi volyymia: yksi säilyttää tietokannan tiedot ja toinen alustaa tietokannan SQL-tiedostolla.</p>
-                <pre class="mt-4 bg-light p-3">
+                <pre class="mt-4 bg-light p-3" style="max-width: 60%; margin: 0 auto;">
                     database:
                       image: postgres:14
                       environment:
@@ -104,10 +104,13 @@
                 <!-- Volyymit -->
                 <h4 class="mt-4">Volyymit</h4>
                 <p class="mt-4">Volyymit kohdassa määritellään volyymit, jotka eri palvelut voivat jakaa. Tässä tapauksessa `db_data`-volyymi mm. säilyttää tietokannan tiedot kun tietokannan kontti sulkeutuu. </p>
-                <pre class="mt-4 bg-light p-3">
+                <pre class="mt-4 bg-light p-3" style="max-width: 60%; margin: 0 auto;">
                     volumes:
                       db_data:
                 </pre>
+            </div>
+            <div class="image">
+                <img src="static/images/docker.png" alt="Docker Logo" class="img-fluid">
             </div>
         </div>
     </div>
