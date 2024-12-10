@@ -124,7 +124,7 @@ button {
 }
 
 pre {
-    max-width: 70%;
+    max-width: 100%;
     overflow-x: auto;
     word-wrap: break-word;
     white-space: pre-wrap;
@@ -135,6 +135,6 @@ pre {
 }
 
 pre.bg-light {
-    max-width: 70%;
+    max-width: 80%;
     margin: 0 auto;
 }
