@@ -135,6 +135,6 @@ pre {
 }
 
 pre.bg-light {
-    max-width: 80%; /* Adjust this value to make the <pre> elements smaller */
-    margin: 0 auto; /* Center the <pre> elements */
+    max-width: 80%;
+    margin: 0 auto;
 }
