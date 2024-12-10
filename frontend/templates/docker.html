@@ -26,9 +26,23 @@
         </div>
         <div class="content">
             <div class="text">
-                <h2 class="mt-4">Docker:</h2>
-                <p class="mt-4">Tämä sivu esittelee Dockeria.</p>
-                <p class="mt-4">Lisää sisältöä tähän myöhemmin.</p>
+                <h2 class="mt-4">Docker yleisesti</h2>
+                <p class="mt-4">Docker on avoimen lähdekoodin alusta, jonka avulla on mahdollista pakata sovelluksia ja niiden riippuvuuksia kevyisiin kontteihin. Docker kontit ovat kuin eräänlaisia virtuaalisia ympäristöjä, jotka ovat riippumattomia käyttöjärjestelmästä ja alustasta. Tämä mahdollistaa ohjelmistojen siirtämisen paikasta toiseen ilman, että ohjelmistoa tarvitsee muokata jokaista alustaa varten. Koska kontit ovat helposti siirrettävissä ja skaalattavissa, tehostavat ne sovellusten kehitystä, testausta ja julkaisua.</p>
+                <h4 class="mt-4">Miksi kontteja tarvitaan ja miten ne eroavat virtuaalipalvelimista?</h4>
+                <p class="mt-4">Jokainen luotu ohjelma on riippuvainen käyttöjärjestelmästä, erilaisista kirjastoista, lisäosista ja asetuksista. Tämä voi aiheuttaa ongelmia, jos ohjelmaa halutaan ajaa eri alustoilla. Yksi ratkaisu tähän on yleensä virtuaalipalvelimet, jotka tarjoavat ohjelmille niiden tarvitseman ympäristön. Virtuaalipalvelimien heikkous on, että ne ovat raskaita ja vievät paljon resursseja, sillä suurin osa virtuaalipalvelimien sisällöstä on merkityksetöntä.</p>
+                <p class="mt-4">Kontit taas ovat kevyempiä ja nopeampia, koska ne jakavat käyttöjärjestelmän ytimen ja resurssit isäntäkoneen kanssa. Tämä mahdollistaa useiden konttien ajamisen samalla isäntäkoneella, sovellusten nopeamman käynnistyksen, sekä siirron ympäristöjen välillä ja jopa 100 kertaa kooltaan pienemmän kontti-imagen verrattuna virtuaalipalvelimeen.</p>
+                <h4 class="mt-4">Dockerin peruskomponentit</h4>
+                <p class="mt-4">Docker koostuu useista komponenteista, joita ovat:</p>
+                <ul class="mt-4">
+                    <li><strong>Docker Image:</strong> Docker Image on tiedosto, joka tarjoaa ohjeet kontin luomiseen. Se sisältää itse sovelluksen, sekä sen tarvitsemat ohjelmistot ja käyttöjärjestelmän.</li>
+                    <li><strong>Docker-kontti:</strong> Kontti on imagen pohjalta käynnistetty sovellusyksikkö. Kontit ovat kevyitä ja helposti siirrettäviä paketteja, jotka sisältävät sovelluksen, sekä sillä tärkeät riippuvuudet</li>
+                    <li><strong>Dockerfile:</strong> Dockerfile sisältää ohjeet Docker Imagen rakentamiselle. Se sisältää komennot mm. riippuvuuksien asentamiseen, tiedostojen kopiomiseen, sekä ympäristön määrittämiseen.</li>
+                    <li><strong>Docker Engine:</strong> Docker Engine on ohjelmisto, joka mahdollistaa konttien luomisen, hallinnoinnin ja ajamisen. Se koostuu Docker Daemonista, REST API:sta ja Docker CLI:stä. Tätä voidaan hallita Docker APIn kautta esim. PowerShellilla tai Bashilla.</li>
+                    <li><strong>Docker Hub:</strong> Docker Hub on pilvipalvelu, joka tarjoaa julkisia Docker Imageja. Se mahdollistaa Imagen jakamisen ja löytämisen, sekä yhteistyön muiden sovelluskehittäjien kanssa.</li>
+                </ul>
+                <h4 class="mt-4">Yhteenvetona</h4>
+                <p class="mt-4">Docker kontit siis nopeuttavat, sekä yksinkertaistavat ohjelmistokehitystä pitämällä kehitysympäristöt samannäköisinä ja tiedostokoot pieninä. Perinteisestä palvelimiin perustuvasta mallista, on Dockerin kontti pohjainen malli tehokkaampi ja skaalautuvampi, joka myös säästää resursseja.</p>
+                <p class="mt-4">Seuraavalla sivulla esitellään tarkemmin Dockerin käyttöönottoa ja <a href="/docker-compose">Docker Composea</a>.</p>
             </div>
             <div class="image">
                 <img src="static/images/docker.png" alt="Docker Logo" class="img-fluid">
