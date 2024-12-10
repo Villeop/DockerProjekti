@@ -122,3 +122,19 @@ button {
     border-color: #d39e00;
     color: #181716;
 }
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #dee2e6;
+}
+
+pre.bg-light {
+    max-width: 80%; /* Adjust this value to make the <pre> elements smaller */
+    margin: 0 auto; /* Center the <pre> elements */
+}

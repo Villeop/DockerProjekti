@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,34 +60,34 @@
                     
                     volumes:
                       db_data:
-                            </pre>
-                    
-                            <!-- Frontend -->
-                            <h4 class="mt-4">Frontend-palvelu</h4>
-                            <p class="mt-4">Frontend-palvelu määrittelee käyttöliittymän. Se rakentaa Docker imagen './frontend' hakemiston Dockerfilen perusteella. Se myös avaa portin 3000, jonka kautta frontend on saatavilla osoitteessa 'http://localhost:3000'.</p>
-                            <pre class="mt-4 bg-light p-3">
+                </pre>
+                
+                <!-- Frontend -->
+                <h4 class="mt-4">Frontend-palvelu</h4>
+                <p class="mt-4">Frontend-palvelu määrittelee käyttöliittymän. Se rakentaa Docker imagen './frontend' hakemiston Dockerfilen perusteella. Se myös avaa portin 3000, jonka kautta frontend on saatavilla osoitteessa 'http://localhost:3000'.</p>
+                <pre class="mt-4 bg-light p-3">
                     frontend:
                       build: ./frontend
                       ports:
                         - "3000:3000"
-                            </pre>
-                    
-                            <!-- Backend -->
-                            <h4 class="mt-4">Backend-palvelu</h4>
-                            <p class="mt-4">Backend-palvelu hoitaa sovelluksen palvelinpuolen asiat. Se rakentaa Docker imagen './backend' hakemiston Dockerfilen perusteella ja toimii portissa 5000. Lisäksi backendiin on määritelty riippuvuudeksi tietokanta, 'database', jotta backend saadaan odottamaan tietokannan käynnistymistä ennen kuin backend itse käynnistyy.</p>
-                            <pre class="mt-4 bg-light p-3">
+                </pre>
+                
+                <!-- Backend -->
+                <h4 class="mt-4">Backend-palvelu</h4>
+                <p class="mt-4">Backend-palvelu hoitaa sovelluksen palvelinpuolen asiat. Se rakentaa Docker imagen './backend' hakemiston Dockerfilen perusteella ja toimii portissa 5000. Lisäksi backendiin on määritelty riippuvuudeksi tietokanta, 'database', jotta backend saadaan odottamaan tietokannan käynnistymistä ennen kuin backend itse käynnistyy.</p>
+                <pre class="mt-4 bg-light p-3">
                     backend:
                       build: ./backend
                       ports:
                         - "5000:5000"
                       depends_on:
                         - database
-                            </pre>
-                    
-                            <!-- Database -->
-                            <h4 class="mt-4">Tietokantapalvelu</h4>
-                            <p class="mt-4">Tietokantapalvelu käyttää virallista Postgres-imagea ja määrittelee ympäristömuuttujat käyttäjälle, salasanalle ja tietokannan nimelle. Tietokantapalvelu avaa portin 5432 ja määritelee lisäksi kaksi volyymia: yksi säilyttää tietokannan tiedot ja toinen alustaa tietokannan SQL-tiedostolla.</p>
-                            <pre class="mt-4 bg-light p-3">
+                </pre>
+                
+                <!-- Database -->
+                <h4 class="mt-4">Tietokantapalvelu</h4>
+                <p class="mt-4">Tietokantapalvelu käyttää virallista Postgres-imagea ja määrittelee ympäristömuuttujat käyttäjälle, salasanalle ja tietokannan nimelle. Tietokantapalvelu avaa portin 5432 ja määritelee lisäksi kaksi volyymia: yksi säilyttää tietokannan tiedot ja toinen alustaa tietokannan SQL-tiedostolla.</p>
+                <pre class="mt-4 bg-light p-3">
                     database:
                       image: postgres:14
                       environment:
@@ -99,33 +99,23 @@
                       volumes:
                         - db_data:/var/lib/postgresql/data
                         - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
-                            </pre>
-                    
-                            <!-- Volyymit -->
-                            <h4 class="mt-4">Volyymit</h4>
-                            <p class="mt-4">Volyymit kohdassa määritellään volyymit, jotka eri palvelut voivat jakaa. Tässä tapauksessa `db_data`-volyymi mm. säilyttää tietokannan tiedot kun tietokannan kontti sulkeutuu. </p>
-                            <pre class="mt-4 bg-light p-3">
+                </pre>
+                
+                <!-- Volyymit -->
+                <h4 class="mt-4">Volyymit</h4>
+                <p class="mt-4">Volyymit kohdassa määritellään volyymit, jotka eri palvelut voivat jakaa. Tässä tapauksessa `db_data`-volyymi mm. säilyttää tietokannan tiedot kun tietokannan kontti sulkeutuu. </p>
+                <pre class="mt-4 bg-light p-3">
                     volumes:
                       db_data:
-                            </pre>
-                    
-                            <!-- Yhteenveto -->
-                            <h4 class="mt-4">Yhteenveto</h4>
-                            <p class="mt-4">Tämä `docker-compose.yml`-tiedosto määrittelee kolme palvelua: frontend, backend ja tietokannan. Se käyttää volyymeja tietojen säilyttämiseen ja varmistaa, että palvelut ovat yhteydessä toisiinsa. Tämä rakenteen avulla koko ympäristö voidaa ajaa ylös komennolla:</p>
-                            <pre class="mt-4 bg-light p-3">
-                    docker-compose up
-                            </pre>
-
-
-            </div>
-            <div class="image">
-                <img src="static/images/docker.png" alt="Docker Logo" class="img-fluid">
+                </pre>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
