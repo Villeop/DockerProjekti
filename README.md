@@ -28,4 +28,4 @@ Ympäristö voidaan ajaa ylös seuraavalla tavalla:
 Kun ympäristö on ajettu ylös, voidaan sovellus avata selaimessa `http://localhost:3000`.
 
 ## Yhteenveto
-Tässä projektissa opittiin luomaan ja konfiguroimaan Docker-kontteja, sekä käyttämään Docker Composea monikonttisen ympäristön hallinnassa. Projekti sisältää frontendin, backendin ja tietokannan, jotka kommunikoivat keskenään Docker-verkon avulla. Käyttäjän muistiinpanot tallennetaan tietokantaan ja niitä voidaan hallita käyttöliittymän kautta.
+Projektissa syvennettiin osaamista Docker-konttien luomisesta ja konfiguroinnista. Projekti koostuu frontend-, backend- ja database-komponenteista, jotka määriteltiin toimimaan yhdessä Docker Composen avulla. Valmis ympäristö muodostaa verkkosivuston, joka esittelee Dockerin käyttöä ja tarjoaa samalla käyttäjille mahdollisuuden lisätä omia muistiinpanoja. Valmista projektia voitaisiin mm. käyttää esimerkkinä Dockerin opetuksessa.
